@@ -260,7 +260,7 @@ class AthenaAdapter(SQLAdapter):
         for page in page_iterator:
             tables = page["TableList"]
             for table in tables:
-                _type = table["TableType"]
+                _type = table.get("TableType")
                 if _type == "VIRTUAL_VIEW":
                     _type = self.Relation.View
                 else:
